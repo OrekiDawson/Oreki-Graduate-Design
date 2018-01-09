@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace OrekiGraduationDesign
 {
-    public partial class Form1 : Form
+    public partial class FrontEnd : Form
     {
-        public Form1()
+        public FrontEnd()
         {
             InitializeComponent();
+        }
+
+        private void FrontEnd_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
