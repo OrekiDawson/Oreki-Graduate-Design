@@ -8,16 +8,17 @@ namespace OrekiGraduationDesign
     public partial class Login : Form
     {
         #region SQL Server Connection
-        private SqlConnection connection = new SqlConnection(Assets.ConStr);
+        private SqlConnection _connection = new SqlConnection(Assets.ConStr);
 
         private void ChkCon()
         {
-            if (connection.State == ConnectionState.Closed)
+            if (_connection.State == ConnectionState.Closed)
             {
-                connection.Open();
+                _connection.Open();
             }
         }
         #endregion
+
         public Login()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace OrekiGraduationDesign
             ChkCon();
             string commandText =
                 $"select stuff_level from market_stuff where stuff_id='{textBox1.Text}' and stuff_password='{textBox2.Text}'";
-            SqlCommand command = new SqlCommand(commandText, connection);
+            SqlCommand command = new SqlCommand(commandText, _connection);
             SqlDataReader reader = command.ExecuteReader();
             object level = new object();
             while (reader.Read())
@@ -53,10 +54,11 @@ namespace OrekiGraduationDesign
                 MessageBox.Show("登录失败");
                 return;
             }
-            if ((string)level == "front-end")
+            if ((string)level == "front_end")
             {
+                Assets.FrontEnd.Text = $"超市信息管理系统 v1.0 - [{textBox1.Text}]";
                 Assets.FrontEnd.Show();
-                this.Hide();
+                Hide();
             }
         }
 
