@@ -69,5 +69,14 @@ namespace OrekiGraduationDesign
                 Button1_Click(sender, e);
             }
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Assets.isAutomatic = true;
+            Assets.FrontEnd.Text = "无人超市自助收银系统";
+            Assets.FrontEnd.Show();
+            
+            
+        }
     }
 }

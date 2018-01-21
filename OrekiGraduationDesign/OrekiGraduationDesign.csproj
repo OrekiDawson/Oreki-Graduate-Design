@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets.cs" />
+    <Compile Include="Back-end.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Back-end.Designer.cs">
+      <DependentUpon>Back-end.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front-End.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Back-end.resx">
+      <DependentUpon>Back-end.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Front-End.resx">
       <DependentUpon>Front-End.cs</DependentUpon>
     </EmbeddedResource>

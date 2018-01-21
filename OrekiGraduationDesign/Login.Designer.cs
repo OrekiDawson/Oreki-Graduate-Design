@@ -92,6 +92,7 @@ namespace OrekiGraduationDesign
             this.button2.TabIndex = 5;
             this.button2.Text = "自助收银";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // Login
             // 

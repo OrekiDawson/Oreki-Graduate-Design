@@ -115,6 +115,7 @@ namespace OrekiGraduationDesign
             this.Text = "Front_End";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrontEnd_FormClosed);
+            this.Load += new System.EventHandler(this.FrontEnd_Load);
             this.Resize += new System.EventHandler(this.FrontEnd_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);

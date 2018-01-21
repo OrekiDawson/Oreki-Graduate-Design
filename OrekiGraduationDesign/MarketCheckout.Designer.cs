@@ -95,6 +95,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "取消";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // labelRefund
             // 
@@ -140,6 +141,7 @@
             this.Controls.Add(this.labelTotal);
             this.Name = "MarketCheckout";
             this.Text = "结账";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MarketCheckout_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

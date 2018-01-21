@@ -18,6 +18,8 @@ namespace OrekiGraduationDesign
 
         public static Inputbox Inputbox = new Inputbox();
 
+        public static bool isAutomatic = false;
+
         public static void ShowInput(string title, string hint)
         {
             var inputbox = new Inputbox

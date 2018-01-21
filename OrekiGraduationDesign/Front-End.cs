@@ -57,6 +57,7 @@ namespace OrekiGraduationDesign
             dataTable.Columns.Add(dataColumn6);
             //label1.Location = new Point(10, Height - 10);
             NewGUID();
+            
         }
 
         private void NewGUID()
@@ -372,7 +373,26 @@ namespace OrekiGraduationDesign
                     dataGridView1.Rows.RemoveAt(i);
                 }
             }
+            CalcTotal();
             textBox1.Focus();
+            if (Assets.isAutomatic)
+            {
+                while (!isMember)
+                {
+                    Member();
+                }
+            }
+        }
+
+        private void FrontEnd_Load(object sender, EventArgs e)
+        {
+            if (Assets.isAutomatic)
+            {
+                while (!isMember)
+                {
+                    Member();
+                }
+            }
         }
     }
 }

@@ -35,10 +35,17 @@ namespace OrekiGraduationDesign
 
         public decimal memberBalance = 0;
 
+        private bool autoOK = false;
+
         public MarketCheckout()
         {
-
             InitializeComponent();
+            if (Assets.isAutomatic)
+            {
+                labelCash.Visible = false;
+                textBox1.Visible = false;
+            }
+            
             ChkCon();
             labelTotal.Text = $"总价：{Assets.FrontEnd.total}";
             if (Assets.FrontEnd.useCoupon == false)
@@ -90,7 +97,15 @@ namespace OrekiGraduationDesign
                 {
                     memberPrice = memberBalance;
                     labelMember.Text = $"会员卡扣款：{memberPrice}";
-                    textBox1.Text = $"{memberPrice}";
+                    if (Assets.isAutomatic)
+                    {
+                        textBox1.Text = "0";
+                    }
+                    else
+                    {
+                        textBox1.Text = $"{price-memberPrice}";
+                    }
+                    
                     textBox1.SelectAll();
                     buttonCheckOut.Enabled = true;
                 }
@@ -136,14 +151,49 @@ namespace OrekiGraduationDesign
                     $"insert into market_receipts values('{Assets.FrontEnd._guid}','{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}',{price},{price},'{Assets.FrontEnd.MemberID}')";
                 SqlCommand commCheckout=new SqlCommand(commCheckoutText,_connection);
                 commCheckout.ExecuteNonQuery();
-                buttonCheckOut.Enabled = false;
+
+                if (Assets.isAutomatic)
+                {
+                    autoOK = true;
+
+                    labelRefund.Visible = true;
+                    labelRefund.Text = "结账成功，祝您购物愉快！";
+                    //System.Threading.Thread.Sleep(3000);
+                    labelCoupon.Visible = false;
+                    labelTotal.Visible = false;
+                    labelPrice.Visible = false;
+                    labelMember.Visible = false;
+                    this.Close();
+                    
+                    return;
+                }
+                else
+                {
+                    buttonCheckOut.Enabled = false;
+                textBox1.ReadOnly = true;
                 button2.Text = "关闭";
+                button2.Focus();
                 Assets.FrontEnd.Init();
                 if (cash+memberPrice>price)
                 {
                     labelRefund.Visible = true;
                     labelRefund.Text = $"找零：{cash + memberPrice - price}";
                 }
+                }
+                
+            }
+            else
+            {
+                if (Assets.isAutomatic)
+                {
+                    MessageBox.Show("会员卡余额不足");
+                }
+                else
+                {
+                    MessageBox.Show("请输入正确的金额");
+                    textBox1.SelectAll();
+                }
+                
             }
         }
 
@@ -152,6 +202,21 @@ namespace OrekiGraduationDesign
             if (e.KeyChar==Convert.ToChar(Keys.Enter))
             {
                 ButtonCheckOut_Click(sender,e);
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void MarketCheckout_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (autoOK)
+            {
+                
+                this.Refresh();
+                Assets.FrontEnd.Init();
             }
         }
     }
