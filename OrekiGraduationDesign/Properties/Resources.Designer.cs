@@ -52,7 +52,7 @@ namespace OrekiGraduationDesign.Properties
             {
                 if ((resourceMan == null))
                 {
-                    ResourceManager temp = new ResourceManager("OrekiGraduationDesign.Properties.Resources", typeof(Resources).Assembly);
+                    var temp = new ResourceManager("OrekiGraduationDesign.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

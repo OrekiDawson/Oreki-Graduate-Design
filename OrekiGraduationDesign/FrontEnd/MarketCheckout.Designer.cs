@@ -1,11 +1,14 @@
-﻿namespace OrekiGraduationDesign
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace OrekiGraduationDesign
 {
     partial class MarketCheckout
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -149,14 +152,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.Label labelCoupon;
-        private System.Windows.Forms.Label labelPrice;
-        private System.Windows.Forms.Label labelCash;
-        private System.Windows.Forms.Button buttonCheckOut;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label labelRefund;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label labelMember;
+        private Label labelTotal;
+        private Label labelCoupon;
+        private Label labelPrice;
+        private Label labelCash;
+        private Button buttonCheckOut;
+        private Button button2;
+        private Label labelRefund;
+        private TextBox textBox1;
+        private Label labelMember;
     }
 }

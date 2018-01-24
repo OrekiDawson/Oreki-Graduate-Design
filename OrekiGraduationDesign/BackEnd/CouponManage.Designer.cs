@@ -1,11 +1,13 @@
-﻿namespace OrekiGraduationDesign
+﻿using System.ComponentModel;
+
+namespace OrekiGraduationDesign
 {
-    partial class Back_end
+    partial class CouponManage
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,18 +30,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Back_end
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.IsMdiContainer = true;
-            this.Name = "Back_end";
-            this.Text = "Back_end";
-            this.ResumeLayout(false);
-
+            this.Text = "CouponManage";
         }
 
         #endregion

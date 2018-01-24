@@ -12,20 +12,24 @@ namespace OrekiGraduationDesign
 
         public static FrontEnd FrontEnd = new FrontEnd();
 
+        public static BackEnd BackEnd = new BackEnd();
+
         public static string Temp = "";
 
         public static int OkCancel = 0;
 
         public static Inputbox Inputbox = new Inputbox();
 
-        public static bool isAutomatic = false;
+        public static bool IsAutomatic = false;
+
+        public static string ItemBarcode = string.Empty;
 
         public static void ShowInput(string title, string hint)
         {
             var inputbox = new Inputbox
             {
                 Text = title,
-                label1 = {Text = hint}
+                label1 = { Text = hint }
             };
             inputbox.ShowDialog();
             //return inputbox.textBox1.Text;

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OrekiGraduationDesign
 {
-    public partial class Back_end : Form
+    public partial class MemberAdd : Form
     {
-        public Back_end()
+        public MemberAdd()
         {
             InitializeComponent();
         }
